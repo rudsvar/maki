@@ -50,6 +50,19 @@ bool maki(char *exe, char *ifname) {
     }
   }
 
+  // If this is a header
+  if (isheaderext(iext)) {
+    char cfile[32] = "";
+    strcat(cfile, ibase);
+    strcat(cfile, ".c");
+    maki(exe, cfile);
+
+    char cppfile[32] = "";
+    strcat(cppfile, ibase);
+    strcat(cppfile, ".cpp");
+    maki(exe, cppfile);
+  }
+
   // Add includes, and recurse
   while (fgets(line, sizeof(line), input)) {
 
@@ -74,21 +87,10 @@ bool maki(char *exe, char *ifname) {
       printf("%s.o: %s\n", ibase, next_name);
     }
 
-    // If is impl, don't go to header
+    // Don't go from a file to its corresponding
+    // header, as we have already been there.
     if (!isheaderext(ext) || strcmp(base, ibase) != 0) {
       maki(exe, next_name);
-    }
-
-    if (isheaderext(iext)) {
-      char cfile[32] = "";
-      strcat(cfile, ibase);
-      strcat(cfile, ".c");
-      maki(exe, cfile);
-
-      char cppfile[32] = "";
-      strcat(cppfile, ibase);
-      strcat(cppfile, ".cpp");
-      maki(exe, cppfile);
     }
   }
 

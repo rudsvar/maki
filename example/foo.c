@@ -2,5 +2,5 @@
 #include <stdio.h>
 
 void foo() {
-  printf("foo() was called");
+  puts("foo() was called");
 }
