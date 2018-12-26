@@ -16,8 +16,6 @@ To install it into your environment
 nix-env -f "https://github.com/rudsvar/maki/archive/master.tar.gz" -i maki
 ```
 
-To test it in a `nix-shell`, clone the repository, enter it, and run `nix-shell shell.nix`.
-
 ## Uninstalling
 ```bash
 nix-env -e maki
@@ -50,7 +48,7 @@ foo.c
 #include <stdio.h>
 
 void foo() {
-  printf("foo() was called");
+  puts("foo() was called");
 }
 ```
 
@@ -58,8 +56,11 @@ Running `maki main.c` will yield the following result.
 
 ```
 main: main.o
+main.o: main.c
 main.o: foo.h
-main: foo
+main: foo.o
+foo.o: foo.c
+foo.o: foo.h
 ```
 
 You can then use it to compile the project with the following command.
