@@ -13,7 +13,7 @@ The program assumes that if declarations are in foo.h or foo.hpp, then the imple
 To install it into your environment
 
 ```bash
-nix-env -f "https://github.com/rudsvar/maki/archive/v0.1.tar.gz" -i maki
+nix-env -f "https://github.com/rudsvar/maki/archive/master.tar.gz" -i maki
 ```
 
 To test it in a `nix-shell`, clone the repository, enter it, and run `nix-shell shell.nix`.
@@ -21,4 +21,49 @@ To test it in a `nix-shell`, clone the repository, enter it, and run `nix-shell 
 ## Uninstalling
 ```bash
 nix-env -e maki
+```
+
+## Example
+Given the files
+
+main.c
+```c
+#include "foo.h"
+
+int main(void) {
+  foo();
+  return 0;
+}
+...
+```
+
+foo.h
+```c
+#pragma once
+
+void foo();
+```
+
+foo.c
+```c
+#include "foo.h"
+#include <stdio.h>
+
+void foo() {
+  printf("foo() was called");
+}
+```
+
+Running `maki main.c` will yield the following result.
+
+```
+main: main.o
+main.o: foo.h
+main: foo
+```
+
+You can then use it to compile the project with the following command.
+
+```make
+maki main.c > maki.out && make -f maki.out
 ```
