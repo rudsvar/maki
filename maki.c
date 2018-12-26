@@ -100,6 +100,8 @@ bool maki(char *exe, char *ifname) {
 
 int main(int argc, char *argv[]) {
 
+  puts("Test");
+
   // Check argument count
   if (argc < 2) {
     printf("Usage: %s <main.(c|cpp)>\n", argv[0]);
