@@ -17,3 +17,8 @@ nix-env -f "https://github.com/rudsvar/maki/archive/v0.1.tar.gz" -i maki
 ```
 
 To test it in a `nix-shell`, clone the repository, enter it, and run `nix-shell shell.nix`.
+
+## Uninstalling
+```nix
+nix-env -e maki
+```
