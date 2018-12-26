@@ -16,6 +16,8 @@ To install it into your environment
 nix-env -f "https://github.com/rudsvar/maki/archive/master.tar.gz" -i maki
 ```
 
+You can also try it in `nix-shell` by entering the cloned repository and typing `nix-shell`.
+
 ## Uninstalling
 ```bash
 nix-env -e maki
