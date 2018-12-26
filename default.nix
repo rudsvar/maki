@@ -6,7 +6,7 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "rudsvar";
     repo = "maki";
-    rev = "https://github.com/rudsvar/maki/archive/v0.1.tar.gz";
+    rev = "v0.1";
     sha256 = "1p9557kzvamxmbs5xqzbw4b4xsjqcw5l9m03ibkkmzb3f3v9yp9a";
   };
   buildPhase = ''
