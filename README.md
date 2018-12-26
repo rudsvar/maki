@@ -12,13 +12,13 @@ The program assumes that if declarations are in foo.h or foo.hpp, then the imple
 ## Installation with Nix
 To install it into your environment
 
-```nix
+```bash
 nix-env -f "https://github.com/rudsvar/maki/archive/v0.1.tar.gz" -i maki
 ```
 
 To test it in a `nix-shell`, clone the repository, enter it, and run `nix-shell shell.nix`.
 
 ## Uninstalling
-```nix
+```bash
 nix-env -e maki
 ```
