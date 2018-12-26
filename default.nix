@@ -7,7 +7,7 @@ stdenv.mkDerivation rec {
     owner = "rudsvar";
     repo = "maki";
     rev = "master";
-    sha256 = "17lb404m35ix84r2mjnd9nx19p351i30is3pc7i91ypgr489lpfk";
+    sha256 = "0637bbd7wi6311ivkqqjii6m1vp4gs8hdhhw4ngg3r3hnzzzbicx";
   };
   buildPhase = ''
     gcc maki.c -o maki
