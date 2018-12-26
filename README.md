@@ -1,6 +1,8 @@
 # Maki
 
 This is just a proof of concept, and not intended for serious use.
+
+## Why?
 I was simply wondering why specifying sources other than the program entry point in cmake and make was required.
 
 ## What does it do?
