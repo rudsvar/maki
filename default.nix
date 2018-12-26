@@ -6,8 +6,8 @@ stdenv.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "rudsvar";
     repo = "maki";
-    rev = "master";
-    sha256 = "0637bbd7wi6311ivkqqjii6m1vp4gs8hdhhw4ngg3r3hnzzzbicx";
+    rev = "https://github.com/rudsvar/maki/archive/v0.1.tar.gz";
+    sha256 = "1p9557kzvamxmbs5xqzbw4b4xsjqcw5l9m03ibkkmzb3f3v9yp9a";
   };
   buildPhase = ''
     gcc maki.c -o maki
